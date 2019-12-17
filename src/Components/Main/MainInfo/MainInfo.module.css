@@ -1,0 +1,21 @@
+.backImage{
+  height: 563px;
+  width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  position: relative;
+ 
+}
+
+.text{
+  color: azure;
+  padding-top: 20%;
+  padding-left: 20%;
+}
+
+.logo img{
+  width: 250px;
+  height: 120px;
+  margin-top: 0px;
+  margin-right: 0px;
+  float: right;
+}

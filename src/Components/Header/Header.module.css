@@ -1,0 +1,22 @@
+.header{
+  grid-area: h;
+  background-color:black;
+  height:120px; 
+}
+
+.header img{
+  width: 200px;
+  height: 90px;
+ 
+}
+
+.header h5{
+  color: white;
+  padding-left: 50px;
+  margin: auto;
+}
+
+.reg {
+  color:white;
+
+}

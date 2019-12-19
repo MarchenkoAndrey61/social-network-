@@ -3,11 +3,11 @@ import classprof from './Main.module.css';
 import MyPosts from './Myposts/MyPosts';
 import MainInfo from './MainInfo/MainInfo';
 
-const Main = () => {
+const Main = (props) => {
   return (
     <div>
        <MainInfo />
-       <MyPosts />
+       <MyPosts posts={ props.posts } />
     </div>
   );
 }

@@ -1,16 +1,18 @@
 import React from 'react';
 import classhead from './Header.module.css';
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
   return (
     <header className= {classhead.header}>
+      <div className = {classhead.flexstyle}>
         <img src="https://retohercules.com/images/dell-logo-transparent-11.png"  alt = "logo"/>
         <h5>Social Network</h5>
-        <div className = {classhead.reg}>
-          <h3> Sing Up</h3>
-          <h3> Log In</h3>
+      </div>
+      <div className = {classhead.reg}>
+          <NavLink to= "/sing_up" className = {classhead.NavLink} >Sing Up</NavLink>
+          <NavLink to= "/log_in" className = {classhead.NavLink}>Log In</NavLink>
         </div>
-          
     </header>
   );
 }

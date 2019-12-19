@@ -2,8 +2,10 @@ import React from 'react';
 import profstyle from "./profile.module.css"
 import profileInfo from './ProfileInfo/profileInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyPosts from '../Main/Myposts/MyPosts';
 
 const Profile = () => {
+
   return (
     <div>
       <div className = {profstyle.mainContent}>
@@ -26,7 +28,7 @@ const Profile = () => {
         </div>
       </div>
       <h1>Your Post:</h1>
-      
+      <MyPosts posts={[]}/>
     </div>
     
   );

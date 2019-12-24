@@ -10,8 +10,8 @@ const Header = () => {
         <h5>Social Network</h5>
       </div>
       <div className = {classhead.reg}>
-          <NavLink to= "/sing_up" className = {classhead.NavLink} >Sing Up</NavLink>
-          <NavLink to= "/log_in" className = {classhead.NavLink}>Log In</NavLink>
+          <NavLink to= "/auth" className = {classhead.NavLink} >Sing Up</NavLink>
+          <NavLink to= "/sign_in" className = {classhead.NavLink}>Log In</NavLink>
         </div>
     </header>
   );

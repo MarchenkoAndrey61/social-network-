@@ -28,8 +28,8 @@ function App(props) {
                 <Route path = '/main' render ={ () => <Main posts={props.state.mainPage.posts }/> }/>
                 <Route path = '/profile' render ={ () => <Profile/> }/>
                 <Route path = '/settings' render ={ () => <Settings/> }/>
-                <Route path = '/sing_up' render ={ () => <SingUpContainer/>} />
-                <Route path = '/log_in' render = {() => <LogContainer/>} />
+                <Route path = '/auth' render ={ () => <SingUpContainer/>} />
+                <Route path = '/sign_in' render = {() => <LogContainer/>} />
               </div>
             </div> 
         </BrowserRouter> 

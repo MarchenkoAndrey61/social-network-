@@ -1,5 +1,5 @@
 import React from 'react';
-import classprof from './Main.module.css';
+//import classprof from './Main.module.css';
 import MyPosts from './Myposts/MyPosts';
 import MainInfo from './MainInfo/MainInfo';
 

@@ -5,12 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import state from './Redux/state';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import { Provider } from 'react-redux';
+import { store } from './Redux/Store/configureStore';
 
 
-ReactDOM.render(<App state = {state}/>,
-                document.getElementById('root'));
+
+ReactDOM.render(
+        <Provider store={store}>
+            <App state = {state}/>
+        </Provider>,
+            document.getElementById('root'));
 
 
 serviceWorker.unregister();

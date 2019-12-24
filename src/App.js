@@ -4,32 +4,38 @@ import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
 import Main from './Components/Main/Main';
 import Profile from './Components/Profile/profile';
-import SingUp from './Components/Sing up/SingUp';
-import LogIn from './Components/Log in/LogIn';
 import Settings from './Components/Settings/Settings';
 import {BrowserRouter, Route} from "react-router-dom"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import 'typeface-roboto';
+import { createStore } from '../../../Library/Caches/typescript/3.6/node_modules/redux';
+import rootReducer from './Redux/Store/reducers';
+import { Provider } from 'react-redux';
+import LogContainer from './Components/Log in/LogContainer';
+import SingUpContainer from './Components/Sing up/RegContainer';
 
+const store = createStore (rootReducer); 
+ 
 function App(props) {
-
-  return (
-    <BrowserRouter> 
-        <div className="app-wrapper">
-          <Header />
-          <Navbar />
-          <div class = "app-wrapper-content">
-            <Route path = '/main' render ={ () => <Main posts={props.state.mainPage.posts }/> }/>
-            <Route path = '/profile' render ={ () => <Profile/> }/>
-            <Route path = '/settings' render ={ () => <Settings/> }/>
-            <Route path = '/sing_up' render ={ () => <SingUp/>} />
-            <Route path = '/log_in' render = {() => <LogIn/>} />
-          </div>
-        </div> 
-    </BrowserRouter> 
-  );
+  
+    return (
+      <Provider store = {store}>
+        <BrowserRouter> 
+            <div className= "app-wrapper" >
+              <Header />
+              <Navbar />
+              <div class = "app-wrapper-content">
+                <Route path = '/main' render ={ () => <Main posts={props.state.mainPage.posts }/> }/>
+                <Route path = '/profile' render ={ () => <Profile/> }/>
+                <Route path = '/settings' render ={ () => <Settings/> }/>
+                <Route path = '/sing_up' render ={ () => <SingUpContainer/>} />
+                <Route path = '/log_in' render = {() => <LogContainer/>} />
+              </div>
+            </div> 
+        </BrowserRouter> 
+      </Provider>
+    )
+  
 }
 
 export default App;

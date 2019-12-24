@@ -7,14 +7,11 @@ export default class SingUp extends React.Component {
 
   constructor(props){
     super(props);
-    this.onUserNameChange = this.onUserNameChange.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
-    this.onRepeatPasswordChange = this.onRepeatPasswordChange.bind(this);
-  }
-
-  onUserNameChange(event){
-    this.props.setUserNameText(event.target.value);
+    this.onpasswrod_confirmationChange = this.onpasswrod_confirmationChange.bind(this);
+    this.onfirst_nameChange = this.onfirst_nameChange.bind(this);
+    this.onlast_nameChange = this.onlast_nameChange.bind(this);
   }
 
   onEmailChange(event){
@@ -25,8 +22,14 @@ export default class SingUp extends React.Component {
     this.props.setPasswordText(event.target.value);
   }
 
-  onRepeatPasswordChange(event){
-    this.props.setRepeatPasswordText(event.target.value);
+  onpasswrod_confirmationChange(event){
+    this.props.setpasswrod_confirmationText(event.target.value);
+  }
+  onfirst_nameChange(event){
+    this.props.setfirst_nameText(event.target.value);
+  }
+  onlast_nameChange(event){
+    this.props.setlast_nameText(event.target.value);
   }
 
     render(){
@@ -34,13 +37,7 @@ export default class SingUp extends React.Component {
         <div>
           <form className={sing.root} noValidate autoComplete="off">
             <div className = {sing.forma}>
-              <TextField id="standard-basic" 
-                         label="User Name" 
-                         type = "text" 
-                         name = "username"
-                     onChange = {this.onUserNameChange}
-                        value = {this.props.username}
-              />
+
               <TextField id="standard-basic"
                         label = "E-mail"
                          type = "text" 
@@ -59,8 +56,22 @@ export default class SingUp extends React.Component {
                          label="Confirm Password"
                          type = "password" 
                          name = "password"
-                     onChange = {this.onRepeatPasswordChange}
-                        value = {this.props.repeatPassword}
+                     onChange = {this.onpasswrod_confirmationChange}
+                        value = {this.props.passwrod_confirmation}
+              />
+              <TextField id="standard-basic"
+                         label="First Name"
+                         type = "text" 
+                         name = "first_name"
+                     onChange = {this.onfirst_nameChange}
+                        value = {this.props.first_name}
+              />
+              <TextField id="standard-basic"
+                         label="Last Name"
+                         type = "text" 
+                         name = "last_name"
+                     onChange = {this.onlast_nameChange}
+                        value = {this.props.last_name}
               />
             <div className = {sing.btn}> 
                 <Button variant="contained" >Enter</Button>

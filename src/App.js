@@ -11,8 +11,8 @@ import 'typeface-roboto';
 import { createStore } from '../../../Library/Caches/typescript/3.6/node_modules/redux';
 import rootReducer from './Redux/Store/reducers';
 import { Provider } from 'react-redux';
-import LogContainer from './Components/Log in/LogContainer';
-import SingUpContainer from './Components/Sing up/RegContainer';
+import LogContainer from './Components/auth/Log In/LogContainer';
+import SingUpContainer from './Components/auth/Sing Up/RegContainer';
 
 const store = createStore (rootReducer); 
  

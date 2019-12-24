@@ -1,7 +1,7 @@
 import React from 'react';
 import LogIn from './LogIn';
 import {connect} from 'react-redux';
-import {setEmailText, setPasswordText} from "../../Redux/Store/login/actions"
+import {setEmailText, setPasswordText} from "../../../Redux/Store/login/actions"
 
 class LogContainer extends React.Component{
   render(){

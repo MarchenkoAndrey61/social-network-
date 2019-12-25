@@ -8,7 +8,7 @@ import Settings from './Components/Settings/Settings';
 import {BrowserRouter, Route} from "react-router-dom"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'typeface-roboto';
-import { createStore } from '../../../Library/Caches/typescript/3.6/node_modules/redux';
+import { createStore } from 'redux';
 import rootReducer from './Redux/Store/reducers';
 import { Provider } from 'react-redux';
 import LogContainer from './Components/auth/Log In/LogContainer';
@@ -25,7 +25,7 @@ function App(props) {
               <Header />
               <Navbar />
               <div class = "app-wrapper-content">
-                <Route path = '/main' render ={ () => <Main posts={props.state.mainPage.posts }/> }/>
+                <Route path = '/main' render ={ () => <Main /> }/>
                 <Route path = '/profile' render ={ () => <Profile/> }/>
                 <Route path = '/settings' render ={ () => <Settings/> }/>
                 <Route path = '/auth' render ={ () => <SingUpContainer/>} />

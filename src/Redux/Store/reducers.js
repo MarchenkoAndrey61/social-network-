@@ -1,4 +1,4 @@
-import { combineReducers } from "../../../../../Library/Caches/typescript/3.6/node_modules/redux";
+import { combineReducers } from "redux";
 import { logReducer } from "./login/reducers";
 import { regReducer } from "./registration /reducers";
 

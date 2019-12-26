@@ -30,3 +30,4 @@ export const setpasswrod_confirmationText = (password) => ({
     type: REG_CHANGE_LAST_NAME_TEXT,
     payload: last_name
   });
+  

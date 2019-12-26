@@ -28,7 +28,7 @@ const Profile = () => {
         </div>
       </div>
       <h1>Your Post:</h1>
-      <MyPosts posts={[]}/>
+      
     </div>
     
   );

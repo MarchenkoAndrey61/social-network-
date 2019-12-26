@@ -11,7 +11,7 @@ const defaulState = {
 };
 
 export const regReducer = (state = defaulState, action) => {
-  console.log(state);
+  
   switch (action.type){
     case REG_CHANGE_EMAIL_TEXT: 
           return {

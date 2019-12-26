@@ -4,10 +4,11 @@ import MyPosts from './Myposts/MyPosts';
 import MainInfo from './MainInfo/MainInfo';
 
 const Main = (props) => {
+  
   return (
     <div>
        <MainInfo />
-       <MyPosts posts={ props.posts } />
+       <MyPosts addPost={props.addPost} data={props.data} />
     </div>
   );
 }

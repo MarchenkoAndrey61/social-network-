@@ -4,6 +4,35 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 export default class LogIn extends React.Component{
+  
+  state = { 
+    email: '',
+    password: ''
+  }
+
+  onBtnClick = () => { 
+
+    fetch('https://postify-api.herokuapp.com/auth/sign_in', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json',
+        //'Access-Token': localStorage.getItem('Access-Token')
+        //'Client': localStorage.getItem('Client')
+        //'Uid': localStorage.getItem('Uid')
+      }
+    }).then(response => {
+      console.log(response.headers.get('Access-Token'));
+      console.log(response.headers.get('Client'));
+      console.log(response.headers.get('Uid'));
+    })
+
+    this.setState({ 
+      email: '',
+      password: ''
+    })
+    
+  }
 
   constructor(props){
     super(props);
@@ -13,12 +42,15 @@ export default class LogIn extends React.Component{
 
   onEmailChange(event){
     this.props.setEmailText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   };
 
   onPasswordChange(event){
     this.props.setPasswordText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   }
-
 
   render(){
         return(
@@ -28,7 +60,7 @@ export default class LogIn extends React.Component{
                 <TextField id="standard-basic" 
                            label="E-mail" 
                            type = "text" 
-                           name = "login" 
+                           name = "email" 
                            value = {this.props.email}
                            onChange = {this.onEmailChange}
                 />
@@ -40,7 +72,7 @@ export default class LogIn extends React.Component{
                            onChange = {this.onPasswordChange}
                 />
                 <div className = {Log.btn}> 
-                  <Button variant="contained" >Enter</Button>
+                  <Button onClick={this.onBtnClick} variant="contained" >Enter</Button>
                 </div>
               </div>
             </form>

@@ -4,6 +4,32 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 export default class SingUp extends React.Component {
+  state = { 
+    email: '',
+    password: '',
+    passwrod_confirmation: '',
+    first_name: '',
+    last_name: ''
+  }
+
+  onBtnClick = () => {  
+    fetch('https://postify-api.herokuapp.com/auth', {
+        method: 'POST',
+        body: JSON.stringify(this.state),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    this.setState({ 
+      email: '',
+      password: '',
+      passwrod_confirmation: '',
+      first_name: '',
+      last_name: ''
+    })
+    
+  }
 
   constructor(props){
     super(props);
@@ -16,20 +42,30 @@ export default class SingUp extends React.Component {
 
   onEmailChange(event){
     this.props.setEmailText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   }
 
   onPasswordChange(event){
     this.props.setPasswordText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   }
 
   onpasswrod_confirmationChange(event){
     this.props.setpasswrod_confirmationText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   }
   onfirst_nameChange(event){
     this.props.setfirst_nameText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   }
   onlast_nameChange(event){
     this.props.setlast_nameText(event.target.value);
+    const { name, value } = event.currentTarget
+    this.setState({ [name]: event.currentTarget.value })
   }
 
     render(){
@@ -41,7 +77,7 @@ export default class SingUp extends React.Component {
               <TextField id="standard-basic"
                         label = "E-mail"
                          type = "text" 
-                         name = "login"
+                         name = ""
                      onChange = {this.onEmailChange}
                         value = {this.props.email}
               />
@@ -74,7 +110,7 @@ export default class SingUp extends React.Component {
                         value = {this.props.last_name}
               />
             <div className = {sing.btn}> 
-                <Button variant="contained" >Enter</Button>
+                <Button onClick={this.onBtnClick} variant="contained" >Enter</Button>
               </div>
             </div>
           </form>

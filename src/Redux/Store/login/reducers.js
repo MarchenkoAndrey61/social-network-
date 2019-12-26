@@ -6,7 +6,7 @@ const defaulState = {
 };
 
 export const logReducer = (state = defaulState, action) => {
-    console.log(state);
+    
     switch (action.type){
       case LOG_CHANGE_EMAIL_TEXT: 
             return {

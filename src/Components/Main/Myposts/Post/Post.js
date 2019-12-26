@@ -17,26 +17,22 @@ const Post = (props) => {
                  <h5>username</h5>
               </div>
               <div>
-                <h6>post :</h6>
+                <h6>post:</h6>
               </div>
             </div>
           </div>
           <div className = {classmypost.postContent}>
-            <h1>{props.message} </h1>
-            
+            <h1>Descriptions: </h1>
+            <h4>Content: </h4>
           </div>
         </div>
         <div className = {classmypost.comment}>
           <div>
-              {props.comment}
-              <span> comments</span> 
+              <span> comments count:</span> 
           </div>
           <Button variant="dark">Show comments</Button>
         </div>
       </div> 
-
-
-
   );
 }
 

@@ -4,6 +4,7 @@ import {setEmailText, setPasswordText, setpasswrod_confirmationText,setfirst_nam
 import {connect} from "react-redux";
 
  class SingUpContainer extends React.Component {
+   
   render(){
     return(
         <SingUp
@@ -44,3 +45,19 @@ const mapDispatchToProps = {
 
 export default connect (mapStateToProps, mapDispatchToProps) (SingUpContainer);
 
+
+// const saga = {
+//   "email" : "example@mail.ru",
+//   "password" : "12345678",
+//   "password_confirmation" : "12345678",
+//   "first_name" : "",
+//   "last_name" : ""
+// }
+
+//   fetch ('https://postify-api.herokuapp.com/auth' , {
+//   method : 'POST',
+//   body : JSON.stringify(saga),  
+//   headers: {
+//           'Content-Type' : 'application/json'
+//   }
+// })

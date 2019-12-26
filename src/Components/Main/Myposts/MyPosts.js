@@ -5,6 +5,17 @@ import {NavLink} from "react-router-dom"
 
 class MyPosts extends React.Component {
  render(){
+
+  fetch('https://postify-api.herokuapp.com/posts', {
+    method: 'GET',
+    headers: new Headers ({
+      'Content-Type': 'application/json',
+      'Access-Token': localStorage.getItem('Access-Token'),
+      'Client': localStorage.getItem('Client'),
+      'Uid': localStorage.getItem('Uid'),
+    })
+  })
+
   let allPosts
     if (this.props.data.length) {
       allPosts = this.props.data.map(function (item) {
@@ -36,7 +47,7 @@ class MyPosts extends React.Component {
                       Comments:
                   </label>
                 </div>
-                <NavLink to= "/posts" className = {classmypost.NavLink}>Check Post</NavLink>
+                <NavLink to={`/posts/${item.id}`} className = {classmypost.NavLink}>Check Post</NavLink>
             </div>
         )
       })

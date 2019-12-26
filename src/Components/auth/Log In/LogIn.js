@@ -16,15 +16,12 @@ export default class LogIn extends React.Component{
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
-        'Content-Type': 'application/json',
-        //'Access-Token': localStorage.getItem('Access-Token')
-        //'Client': localStorage.getItem('Client')
-        //'Uid': localStorage.getItem('Uid')
+        'Content-Type': 'application/json',     
       }
     }).then(response => {
-      console.log(response.headers.get('Access-Token'));
-      console.log(response.headers.get('Client'));
-      console.log(response.headers.get('Uid'));
+      localStorage.setItem('Access-Token', response.headers.get('Access-Token'));
+      localStorage.setItem('Client', response.headers.get('Client'));
+      localStorage.setItem('Uid', response.headers.get('Uid'));
     })
 
     this.setState({ 

@@ -2,12 +2,14 @@ import React from 'react';
 import Log from './LogIn.module.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Redirect } from 'react-router';
 
 export default class LogIn extends React.Component{
   
   state = { 
     email: '',
-    password: ''
+    password: '',
+    redirect: false
   }
 
   onBtnClick = () => { 
@@ -22,13 +24,12 @@ export default class LogIn extends React.Component{
       localStorage.setItem('Access-Token', response.headers.get('Access-Token'));
       localStorage.setItem('Client', response.headers.get('Client'));
       localStorage.setItem('Uid', response.headers.get('Uid'));
-    })
+    }).then(() => this.setState({ redirect: true }));
 
     this.setState({ 
       email: '',
       password: ''
-    })
-    
+    })    
   }
 
   constructor(props){
@@ -50,6 +51,10 @@ export default class LogIn extends React.Component{
   }
 
   render(){
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to='/main'/>;
+    }
         return(
           <div>
             <form className={Log.root} noValidate autoComplete="off">
@@ -60,6 +65,7 @@ export default class LogIn extends React.Component{
                            name = "email" 
                            value = {this.props.email}
                            onChange = {this.onEmailChange}
+                           maxlength= "15"
                 />
                 <TextField id="standard-basic" 
                            label="Password" 
@@ -67,6 +73,7 @@ export default class LogIn extends React.Component{
                            name = "password" 
                            value = {this.props.password}
                            onChange = {this.onPasswordChange}
+                           maxlength= "15"
                 />
                 <div className = {Log.btn}> 
                   <Button onClick={this.onBtnClick} variant="contained" >Enter</Button>

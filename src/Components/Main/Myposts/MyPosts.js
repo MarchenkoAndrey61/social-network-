@@ -4,8 +4,12 @@ import Forma from './Form/form';
 import {NavLink} from "react-router-dom"
 
 class MyPosts extends React.Component {
- render(){
+  async componentDidMount() {
+    this.props.watchPost()
 
+  }	
+ render(){
+  console.log(this.props.data)
   fetch('https://postify-api.herokuapp.com/posts', {
     method: 'GET',
     headers: new Headers ({
@@ -38,8 +42,8 @@ class MyPosts extends React.Component {
                   </div>
                 </div>
                 <div className = {classmypost.postContent}>
-                  <h1> {item.title} </h1>
-                  <h4>{item.discription}</h4>
+                  <h1 > {item.title} </h1>
+                  <h4 >{item.description}</h4>
                 </div>
               </div>
                 <div>

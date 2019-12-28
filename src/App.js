@@ -15,17 +15,35 @@ import { Provider } from 'react-redux';
 import LogContainer from './Components/auth/Log In/LogContainer';
 import SingUpContainer from './Components/auth/Sing Up/RegContainer';
 import { connect } from 'react-redux';
-import { addPost } from './Redux/Store/posts/actions';
+import { addPost, watchPost } from './Redux/Store/posts/actions';
+import { postReducer } from './Redux/Store/posts/reducers';
 import Post from './Components/specPost/specPost';
 const store = createStore (rootReducer); 
  
 class App extends React.Component{
-  render(){
-    const wrapperPost = (props) => {
-      return <Post { ...props } data={this.props} onAddComment={this.addComment} />
+
+    state = {
+      'Access-Token': localStorage.getItem('Access-Token'),
+      'Client': localStorage.getItem('Client'),
+      'Uid': localStorage.getItem('Uid'),
     }
+
+    componentWillReceiveProps(nextProps){
+      console.log("componentWillReceiveProps", nextProps)
+    }
+    componentDidMount(){
+      console.log("component did mount props", this.props)
+    }
+
+  render(){
+
     console.log(this.props)
-    const { post, addPostAction } = this.props
+    const { post, addPostAction, watchPostAction } = this.props
+
+    const wrapperPost = (props) => {
+      return <Post { ...props } data={post} onAddComment={this.addComment} />
+    }
+
     return(
       <Provider store = {store}>
         <BrowserRouter> 
@@ -33,9 +51,12 @@ class App extends React.Component{
               <Header />
               <Navbar />
               <div class = "app-wrapper-content">
-                <Route path = '/main' render ={ () => <Main data={post} 
+                <Route path = '/main' render ={ () => <Main watchPost={watchPostAction}
+                                                            data={post} 
                                                             addPost={addPostAction}/> }/>
-                <Route path = '/profile' render ={ () => <Profile/> }/>
+                <Route path = '/profile' render ={ () => <Profile  data={post} 
+                                                                   addPost={addPostAction}
+                /> }/>
                 <Route path = '/settings' render ={ () => <Settings/> }/>
                 <Route path = '/auth' render ={ () => <SingUpContainer/>} />
                 <Route path = '/sign_in' render = {() => <LogContainer/>} />
@@ -50,13 +71,14 @@ class App extends React.Component{
 
 const mapStateToProps = store => {
   return {
-    post: store,
+    post: store,  
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    addPostAction: (title, discription) => dispatch(addPost(title, discription))
+    addPostAction: (title, description) => dispatch(addPost(title, description)),
+    watchPostAction: () => dispatch(watchPost())
   }
 }
 

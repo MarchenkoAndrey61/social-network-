@@ -6,16 +6,16 @@ import {Button} from 'react-bootstrap';
 class Forma extends React.Component{
   state = {
     title: '',
-    discription: ''
+    description: ''
   }
 
   onBtnClick = () => {
     const title = this.state.title
-    const discription = this.state.discription
-    this.props.addPost(title, discription)
+    const description = this.state.description
+    this.props.addPost(title, description)
     this.setState({
       title: '',
-      discription: '',
+      description: '',
     })
   }
   changeNewPost = (e) => {
@@ -33,8 +33,8 @@ class Forma extends React.Component{
               <Form.Control name='title' onChange={this.changeNewPost}  placeholder="Title" value ={this.state.title} />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Textarea</Form.Label>
-              <Form.Control name='discription' onChange={this.changeNewPost} placeholder="Description"  as="textarea" rows="3" value ={this.state.discription} />
+              <Form.Label rows="10" cols="20" >Textarea</Form.Label>
+              <Form.Control name='description' onChange={this.changeNewPost} placeholder="Description"  as="textarea" rows="3" value ={this.state.description} />
             </Form.Group>
             <Button onClick={this.onBtnClick} variant="dark">Add post</Button>
           </Form> 

@@ -5,10 +5,11 @@ import MainInfo from './MainInfo/MainInfo';
 
 const Main = (props) => {
   
+   
   return (
     <div>
        <MainInfo />
-       <MyPosts addPost={props.addPost} data={props.data} />
+       <MyPosts addPost={props.addPost} data={props.data} watchPost={props.watchPost} />
     </div>
   );
 }

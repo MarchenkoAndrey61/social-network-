@@ -1,6 +1,9 @@
 import { createStore, applyMiddleware } from 'redux'
-import { logger } from 'redux-logger'
+import createSagaMiddleware from 'redux-saga';
+import { watchFetchPost, reducer } from "../Saga/Saga";
 import { rootReducer } from './posts/reducers'
-import thunk from 'redux-thunk'
 
-export const store = createStore(rootReducer, applyMiddleware(thunk, logger))
+
+const sagaMiddleware = createSagaMiddleware()
+export const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(watchFetchPost);

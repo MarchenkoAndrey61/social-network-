@@ -73,7 +73,7 @@ class Post extends React.Component {
                 <div>
                   <div className = {spec.postContent} >
                     <h1> {showPost.title} </h1>
-                    <h4> {showPost.discription} </h4>
+                    <h4> {showPost.description} </h4>
                   </div>
                   
                   {

@@ -77,9 +77,10 @@ export default class SingUp extends React.Component {
               <TextField id="standard-basic"
                         label = "E-mail"
                          type = "text" 
-                         name = ""
+                         name = "email"
                      onChange = {this.onEmailChange}
                         value = {this.props.email}
+                    maxlength = "15"
               />
               <TextField id="standard-basic"
                          label="Password"
@@ -87,6 +88,7 @@ export default class SingUp extends React.Component {
                          name = "password"
                      onChange = {this.onPasswordChange}
                         value = {this.props.password}
+                    maxlength = "15"
               />
               <TextField id="standard-basic"
                          label="Confirm Password"
@@ -94,6 +96,7 @@ export default class SingUp extends React.Component {
                          name = "password"
                      onChange = {this.onpasswrod_confirmationChange}
                         value = {this.props.passwrod_confirmation}
+                    maxlength = "15"
               />
               <TextField id="standard-basic"
                          label="First Name"
@@ -101,6 +104,7 @@ export default class SingUp extends React.Component {
                          name = "first_name"
                      onChange = {this.onfirst_nameChange}
                         value = {this.props.first_name}
+                    maxlength = "15"
               />
               <TextField id="standard-basic"
                          label="Last Name"
@@ -108,6 +112,7 @@ export default class SingUp extends React.Component {
                          name = "last_name"
                      onChange = {this.onlast_nameChange}
                         value = {this.props.last_name}
+                    maxlength = "15"
               />
             <div className = {sing.btn}> 
                 <Button onClick={this.onBtnClick} variant="contained" >Enter</Button>

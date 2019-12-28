@@ -58,6 +58,12 @@
 .postContent h1{
   display: flex;
   justify-content: center;
+  
+}
+
+.postContent{
+  word-wrap: break-word;
+  width: 1000px;
 }
 
 .NavLink{
